@@ -16,12 +16,17 @@ app.use('/graphql', graphqlHTTP({
     graphiql: true,
 }));
 
-
-mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.mjzebro.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`).then(() =>
+const startServer = async () =>
 {
-    app.listen(3000, () =>
+    try {
+        mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.mjzebro.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`)
+        app.listen(3000, () =>
     {
         console.log('Server started on port 3000');
      });
-     
-}).catch(err => {console.log(err)});
+    } catch (error) {
+    console.log(error);
+    }
+ }
+
+startServer();
