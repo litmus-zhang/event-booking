@@ -17,6 +17,7 @@ module.exports ={
                 email: args.userInput.email,
                 password: hashedPassword
             });
+            console.log(user_1);
             const result = user_1.save();
             return { ...result._doc, password: null, _id: result.id };
         } catch (err)
@@ -36,8 +37,7 @@ module.exports ={
         {
             throw new Error('Password is incorrect!');
         }
-        const token = jwt.sign({ userId: user.id, email: user.email }, "secretKey", { expiresIn: '1h' });
+        const token = jwt.sign({ userId: user.id, email: user.email }, "somesupersecretkey", { expiresIn: '1h' });
         return { userId: user.id, token: token, tokenExpiration: 1 };
-
     }
 }
