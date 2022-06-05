@@ -9,7 +9,7 @@ export default function MainNavigation()
   return (
       <header>
           <div className="main-navigation_logo">
-              <h1> EasyEvents</h1>
+              <h1><NavLink to="/">EasyEvents</NavLink> </h1> 
           </div>
           <div className="menu" onClick={()=> setIsOpen(!isOpen)} >
               <div></div>
@@ -20,15 +20,15 @@ export default function MainNavigation()
               <ul>
                     <li><NavLink to="/events">Events</NavLink></li>
                     <li><NavLink to="/bookings">Bookings</NavLink></li>
-                    <li><NavLink to="/auth">Login</NavLink></li>
+                    <li><NavLink to="/">Login</NavLink></li>
               </ul>
           </nav>
           <style jsx>{`
             header {
                 height: 60px;
                 position: sticky;
-                background-color: #333;
-                color: #fff;
+                background-color: #01d1d1;
+                color: #000;
                 display: flex;
                 place-items: center;
                 justify-content: space-between;
@@ -38,6 +38,11 @@ export default function MainNavigation()
                 margin: 0;
                 font-size: 1rem;
             }
+            .main-navigation_logo a {
+                color: #fff;
+                text-decoration: none;
+            }
+
             .menu{
                 width: 30px;
                 height: 30px;
@@ -51,7 +56,7 @@ export default function MainNavigation()
             .menu > div {
                 width: 30px;
                 height: 4px;
-                background-color: #fff;
+                background-color: #000;
                 border-radius: 10px;
             }
             .navbar {
@@ -75,11 +80,11 @@ export default function MainNavigation()
                 color: #fff;
             }
             .navbar ul li a {
-                color: #fff;
+                color: #000;
                 text-decoration: none;
             }
             .navbar ul li a:hover {
-                color: lightgreen;
+                color: grey;
             }
             @media (min-width: 768px) {
                 .navbar {

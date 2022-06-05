@@ -1,5 +1,10 @@
-export default function EventsPage() {
-  return (
-    <div>Events</div>
-  )
+import React, { Component } from 'react'
+
+export default class Events extends Component {
+  render() {
+    return (
+      <div>Events</div>
+    )
+  }
 }
+
